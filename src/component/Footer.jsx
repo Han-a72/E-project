@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import "./Home.css";
 
@@ -17,3 +18,16 @@ const Footer = () => {
 };
 
 export default Footer;
+=======
+import React from 'react'
+
+const Footer = () => {
+    return (
+        <div>
+            
+        </div>
+    )
+}
+
+export default Footer
+>>>>>>> 83e7c63cb11d05943b2550cd53335d00853428e5
