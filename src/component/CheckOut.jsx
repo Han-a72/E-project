@@ -62,10 +62,10 @@ const Checkout = () => {
                                     </div>
                                 </div>
 
-                                <div className="col-12">
+                                <div className="col-12 ">
                                     <label htmlFor="username" className="form-label">Username</label>
-                                    <div className="input-group has-validation">
-                                        <span className="input-group-text">@</span>
+                                    <div className="input-group has-validation ">
+                                        <span className="input-group-text ">@</span>
                                         <input type="text" className="form-control" id="username" placeholder="Username" required="" />
                                         <div className="invalid-feedback">
                                             Your username is required.
@@ -127,37 +127,37 @@ const Checkout = () => {
 
                             <hr className="my-4" />
 
-                            <div className="form-check">
-                                <input type="checkbox" className="form-check-input" id="same-address" />
-                                <label className="form-check-label" htmlFor="same-address">Shipping address is the same as my billing address</label>
+                            <div className="form-check ">
+                                <input type="checkbox " className="form-check-input p-2" id="same-address" />
+                                <label className="form-check-label " htmlFor="same-address">Shipping address is the same as my billing address</label>
                             </div>
 
                             <div className="form-check">
-                                <input type="checkbox" className="form-check-input" id="save-info" />
+                                <input type="checkbox " className="form-check-input p-2" id="save-info" />
                                 <label className="form-check-label" htmlFor="save-info">Save this information htmlFor next time</label>
                             </div>
 
                             <hr className="my-4" />
 
-                            <h4 className="mb-3">Payment</h4>
+                            <h4 className="mb-3 ">Payment</h4>
 
-                            <div className="my-3">
+                            <div className="my-3 ">
                                 <div className="form-check">
-                                    <input id="credit" name="paymentMethod" type="radio" className="form-check-input" checked="" required="" />
+                                    <input id="credit" name="paymentMethod" type="radio" className="form-check-input p-2" checked="" required="" />
                                     <label className="form-check-label" htmlFor="credit">Credit card</label>
                                 </div>
                                 <div className="form-check">
-                                    <input id="debit" name="paymentMethod" type="radio" className="form-check-input" required="" />
+                                    <input id="debit" name="paymentMethod" type="radio" className="form-check-input p-2" required="" />
                                     <label className="form-check-label" htmlFor="debit">Debit card</label>
                                 </div>
                                 <div className="form-check">
-                                    <input id="paypal" name="paymentMethod" type="radio" className="form-check-input" required="" />
+                                    <input id="paypal" name="paymentMethod" type="radio" className="form-check-input p-2" required="" />
                                     <label className="form-check-label" htmlFor="paypal">PayPal</label>
                                 </div>
                             </div>
 
-                            <div className="row gy-3">
-                                <div className="col-md-6">
+                            <div className="row gy-3 ">
+                                <div className="col-md-6 ">
                                     <label htmlFor="cc-name" className="form-label">Name on card</label>
                                     <input type="text" className="form-control" id="cc-name" placeholder="" required="" />
                                     <small className="text-muted">Full name as displayed on card</small>
@@ -166,7 +166,7 @@ const Checkout = () => {
                                     </div>
                                 </div>
 
-                                <div className="col-md-6">
+                                <div className="col-md-6 ">
                                     <label htmlFor="cc-number" className="form-label">Credit card number</label>
                                     <input type="text" className="form-control" id="cc-number" placeholder="" required="" />
                                     <div className="invalid-feedback">
@@ -174,7 +174,7 @@ const Checkout = () => {
                                     </div>
                                 </div>
 
-                                <div className="col-md-3">
+                                <div className="col-md-3 p-3 m-3">
                                     <label htmlFor="cc-expiration" className="form-label">Expiration</label>
                                     <input type="text" className="form-control" id="cc-expiration" placeholder="" required="" />
                                     <div className="invalid-feedback">
@@ -182,7 +182,7 @@ const Checkout = () => {
                                     </div>
                                 </div>
 
-                                <div className="col-md-3">
+                                <div className="col-md-3 p-3 m-3">
                                     <label htmlFor="cc-cvv" className="form-label">CVV</label>
                                     <input type="text" className="form-control" id="cc-cvv" placeholder="" required="" />
                                     <div className="invalid-feedback">
