@@ -11,7 +11,7 @@ import Contact from './component/Contact';
 import ProductDetail from './component/ProductDetails';
 import Cart from './component/Cart';
 import Checkout from './component/CheckOut';
-
+import Order from './component/Order';
 
 const App = () => {
   return (
@@ -28,6 +28,7 @@ const App = () => {
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/order" element={<Order />} />
 
             {/* Redirect unknown routes */}
             <Route path="*" element={<Navigate to="/" />} />

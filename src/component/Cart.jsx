@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { delItem } from "../redux/actions/Index";
 import { NavLink } from "react-router-dom";
+import { FaTrash } from "react-icons/fa";
 import "./Home.css";
 
 const Cart = () => {
@@ -18,11 +19,13 @@ const Cart = () => {
         <div className="container py-4">
           <button
             onClick={() => handleClose(cartItem)}
-            className="btn-close float-end"
-            aria-label="Close"
-          ></button>
+            className="btn btn-light remove-btn"
+            aria-label="Remove"
+          >
+            <FaTrash size={18} color="#dc3545" />
+          </button>
           <div className="row justify-content-center">
-            <div className="col-md-4">
+            <div className="col-md-4 text-center">
               <img
                 src={cartItem.image}
                 alt={cartItem.title}
@@ -30,7 +33,7 @@ const Cart = () => {
                 width="180px"
               />
             </div>
-            <div className="col-md-4">
+            <div className="col-md-6 d-flex flex-column justify-content-center">
               <h3>{cartItem.title}</h3>
               <p className="lead fw-bold">${cartItem.price}</p>
             </div>
@@ -54,13 +57,13 @@ const Cart = () => {
 
   const button = () => {
     return (
-      <div className="container ">
+      <div className="container text-center">
         <div className="row">
           <NavLink
             to="/checkout"
-            className="btn btn-outline-primary mb-5 w-25 mx-auto"
+            className="btn btn-outline-primary mb-5 w-50 mx-auto"
           >
-            Proceed To checkout
+            Proceed To Checkout
           </NavLink>
         </div>
       </div>

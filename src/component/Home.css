@@ -495,6 +495,40 @@ form button:hover {
 
 
 
+.cart-item-box {
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 15px auto;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.cart-item-box:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.remove-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.remove-btn:hover svg {
+  color: #b02a37;
+}
+
+.empty-cart h3 {
+  text-align: center;
+  color: #666;
+  padding: 40px 0;
+  font-size: 24px;
+}
 
 
 
