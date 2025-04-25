@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { useDispatch } from "react-redux";
 import { addItem, delItem } from "../redux/actions/Index";
-import "./Home.css";
+import "./Home.css"; 
+
 const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -39,29 +40,31 @@ const ProductDetail = () => {
   }
 
   return (
-    <div className="container my-5 py-3">
-      <div className="row d-flex align-items-center">
-        {/* Product Image Section */}
-        <div className="col-md-6 d-flex justify-content-center">
-          <div className="border rounded shadow-sm p-3 bg-white">
-            <img src={product.image} alt={product.title} className="img-fluid rounded" style={{ maxWidth: "100%", height: "auto" }}/>
+    <div className="container my-5 py-4">
+      <div className="row g-4 align-items-center">
+        <div className="col-md-6 text-center">
+          <div className="border rounded shadow-sm p-3 bg-white h-100 d-flex justify-content-center align-items-center">
+            <img
+              src={product.image}
+              alt={product.title}
+              className="img-fluid"
+              style={{ maxHeight: "400px", objectFit: "contain" }}
+            />
           </div>
         </div>
 
         {/* Product Details Section */}
         <div className="col-md-6">
-          <div className="p-4">
-            <h1 className="display-5 fw-bold text-primary">{product.title}</h1>
-            <hr className="w-50 mx-0 border-2 border-primary" />
-            <h2 className="text-success fw-semibold my-3">${product.price}</h2>
-            <p className="lead text-muted">{product.description}</p>
-            <button
-              onClick={handleCart}
-              className="btn btn-lg btn-outline-primary px-4 py-2 mt-4"
-            >
-              {cartBtn}
-            </button>
-          </div>
+          <h2 className="fw-bold text-primary">{product.title}</h2>
+          <hr className="w-50 border-primary" />
+          <h4 className="text-success fw-semibold my-3">${product.price}</h4>
+          <p className="lead text-muted">{product.description}</p>
+          <button
+            onClick={handleCart}
+            className="btn btn-outline-primary btn-lg px-4 mt-3"
+          >
+            {cartBtn}
+          </button>
         </div>
       </div>
     </div>

@@ -16,7 +16,7 @@ const Product = () => {
         
         if (componentMounted) {
           setData(products);
-          setFilter(products);  // Ensure filtered data is properly stored
+          setFilter(products);  
         }
       } catch (error) {
         console.error("Error fetching electronic products:", error);
@@ -45,7 +45,7 @@ const Product = () => {
 
   return (
     <div>
-      <div className="container py-5">
+      <div className="container">
         <div className="row">
           <div className="col-12 text-center">
             <h1>Electronic Products</h1>

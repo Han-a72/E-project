@@ -14,8 +14,8 @@ const Checkout = () => {
   };
 
   return (
-    <div className="container my-5">
-      <h2 className="text-center mb-4 pt-4">Checkout Summary</h2>
+    <div className="container my-1">
+      <h2 className="text-center mb-4">Checkout Summary</h2>
 
       <div className="row">
         {/* Payment Method on the left */}
