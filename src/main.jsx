@@ -9,6 +9,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './redux/store';
 import { Provider } from 'react-redux';
+import store from './redux/store';  // Make sure this is correct relative path
 
 // Create a root for React to render into
 const root = ReactDOM.createRoot(document.getElementById('root'));
