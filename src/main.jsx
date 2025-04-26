@@ -7,7 +7,7 @@ import 'font-awesome/css/font-awesome.min.css';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import store from './redux/store'; // Only import once
+import store from './redux/Store'; // Only import once
 import { Provider } from 'react-redux';
 
 // Create a root for React to render into
