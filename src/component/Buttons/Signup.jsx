@@ -1,7 +1,30 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Signup = () => {
+  const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Simulate a successful registration with a delay (e.g. API call)
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      console.log("Signup successful");
+      
+      // Navigate to login page after successful signup
+      navigate("/login");
+    } catch (error) {
+      console.error("Signup failed", error);
+      // You can show an error message here if needed
+    }
+  };
+
   return (
     <div>
       {/* Button trigger modal */}
@@ -37,12 +60,18 @@ const Signup = () => {
               <button className="btn btn-danger w-100 mb-4">
                 <span className="fa fa-google me-2"></span> Sign up With Google
               </button>
-              <form>
-                <div className="mb-3 ">
-                  <label htmlFor="exampleInput" className="form-label ">
+              <form onSubmit={handleSubmit}>
+                <div className="mb-3">
+                  <label htmlFor="exampleInput" className="form-label">
                     Username
                   </label>
-                  <input type="text" className="form-control bg-light" id="exampleInput" />
+                  <input
+                    type="text"
+                    className="form-control bg-light"
+                    id="exampleInput"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                  />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="exampleInputEmail1" className="form-label">
@@ -52,6 +81,8 @@ const Signup = () => {
                     type="email"
                     className="form-control"
                     id="exampleInputEmail1"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     aria-describedby="emailHelp"
                   />
                   <div id="emailHelp" className="form-text">
@@ -62,7 +93,13 @@ const Signup = () => {
                   <label htmlFor="exampleInputPassword1" className="form-label">
                     Password
                   </label>
-                  <input type="password" className="form-control bg-light" id="exampleInputPassword1" />
+                  <input
+                    type="password"
+                    className="form-control bg-light"
+                    id="exampleInputPassword1"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
                 </div>
                 <div className="mb-3 form-check p-2">
                   <input
@@ -70,7 +107,7 @@ const Signup = () => {
                     className="form-check-input m-1"
                     id="exampleCheck1"
                   />
-                  <label className="form-check-label  " htmlFor="exampleCheck1">
+                  <label className="form-check-label" htmlFor="exampleCheck1">
                     I agree to the terms and conditions
                   </label>
                 </div>
