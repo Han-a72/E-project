@@ -1,28 +1,41 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Login = ({ setIsAuthenticated }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(""); // Reset error message
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate API
+      // Make a POST request to the login API
+      const response = await axios.post('https://ecommerce1-1-can5.onrender.com/user/login', {
+        email,
+        password
+      });
 
-      // Save user and update state
-      localStorage.setItem("user", JSON.stringify({ email }));
-      setIsAuthenticated(true);
-      navigate("/");
+      // If login is successful
+      if (response.status === 200) {
+        console.log("Login successful");
 
-      // Close modal manually
-      const modal = bootstrap.Modal.getInstance(document.getElementById("loginModal"));
-      modal?.hide();
+        // Save user data to localStorage
+        localStorage.setItem("user", JSON.stringify(response.data)); // Store user info returned by backend
+        setIsAuthenticated(true); // Update authentication state
+        navigate("/"); // Redirect to the home page
+
+        // Close the modal manually
+        const modal = bootstrap.Modal.getInstance(document.getElementById("loginModal"));
+        modal?.hide();
+      }
     } catch (error) {
       console.error("Login failed", error);
+      setError("Invalid email or password. Please try again.");
     }
   };
 
@@ -81,6 +94,7 @@ const Login = ({ setIsAuthenticated }) => {
                   <input type="checkbox" className="form-check-input p-2" id="rememberMe" />
                   <label className="form-check-label" htmlFor="rememberMe">Remember me</label>
                 </div>
+                {error && <div className="alert alert-danger">{error}</div>}
                 <button type="submit" className="btn btn-outline-primary w-100 mt-4">Submit</button>
               </form>
             </div>

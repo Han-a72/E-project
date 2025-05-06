@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Signup = () => {
@@ -7,21 +8,28 @@ const Signup = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(""); // Reset error message
 
     try {
-      // Simulate a successful registration with a delay (e.g. API call)
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      // Send signup data to backend API
+      const response = await axios.post('https://ecommerce1-1-can5.onrender.com/user/register', {
+        username,
+        email,
+        password,
+      });
 
-      console.log("Signup successful");
-      
-      // Navigate to login page after successful signup
-      navigate("/login");
+      if (response.status === 200) {
+        console.log("Signup successful");
+        // Navigate to login page after successful signup
+        navigate("/login");
+      }
     } catch (error) {
       console.error("Signup failed", error);
-      // You can show an error message here if needed
+      setError("Signup failed. Please try again.");
     }
   };
 
@@ -62,9 +70,7 @@ const Signup = () => {
               </button>
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                  <label htmlFor="exampleInput" className="form-label">
-                    Username
-                  </label>
+                  <label htmlFor="exampleInput" className="form-label">Username</label>
                   <input
                     type="text"
                     className="form-control bg-light"
@@ -74,9 +80,7 @@ const Signup = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="exampleInputEmail1" className="form-label">
-                    Email address
-                  </label>
+                  <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
                   <input
                     type="email"
                     className="form-control"
@@ -90,9 +94,7 @@ const Signup = () => {
                   </div>
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="exampleInputPassword1" className="form-label">
-                    Password
-                  </label>
+                  <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
                   <input
                     type="password"
                     className="form-control bg-light"
@@ -111,6 +113,7 @@ const Signup = () => {
                     I agree to the terms and conditions
                   </label>
                 </div>
+                {error && <div className="alert alert-danger">{error}</div>}
                 <button
                   type="submit"
                   className="btn btn-outline-primary w-100 mt-5"
